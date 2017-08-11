@@ -1,5 +1,4 @@
-# EDIRWE
-Effective Dimensionality Reduction for Word Embeddings.
+# Effective Dimensionality Reduction for Word Embeddings.
 
 Code for the [arXiv paper](https://drive.google.com/file/d/0B5e5stq1Uz3yVDJOdE5VaHhPSDA/view?usp=sharing).
 
