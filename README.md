@@ -5,4 +5,4 @@ Code for the [arXiv paper](https://drive.google.com/file/d/0B5e5stq1Uz3yVDJOdE5V
 
 The word-vector evaluation code is directly used from https://github.com/mfaruqui/eval-word-vectors.  
 
-Run the script algo.py (embedding location is hardcoded as of now).
+Run the script algo.py (embedding file location is hardcoded as of now).
