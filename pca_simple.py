@@ -25,7 +25,6 @@ pca_embeddings = {}
 embedding_file = open('pca_embedding_30.txt', 'w')
 
 # PCA with 150 dimensions.
-
 pca =  PCA(n_components = 150)
 X_train = X_train - np.mean(X_train)
 X_fit = pca.fit_transform(X_train)
@@ -41,5 +40,5 @@ for i, x in enumerate(X_train_names):
 
 print("Results for the Embedding")
 print subprocess.check_output(["python", "all_wordsim.py", "pca_embedding_30.txt", "data/word-sim/"])
-print("Results for the 100D Glove")
+print("Results for the Glove")
 print subprocess.check_output(["python", "all_wordsim.py", "../glove.6B/glove.6B.300d.txt", "data/word-sim/"])
