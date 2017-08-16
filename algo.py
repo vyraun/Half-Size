@@ -24,7 +24,7 @@ for x in Glove:
 X_train = np.asarray(X_train)
 pca_embeddings = {}
 
-# First PCA
+# PCA to get Top Components
 pca =  PCA(n_components = 300)
 X_train = X_train - np.mean(X_train)
 X_fit = pca.fit_transform(X_train)
@@ -32,6 +32,7 @@ U1 = pca.components_
 
 z = []
 
+# Removing Projections on Top Components
 for i, x in enumerate(X_train):
 	for u in U1[0:7]:        
         	x = x - np.dot(u.transpose(),x) * u 
@@ -39,13 +40,13 @@ for i, x in enumerate(X_train):
 
 z = np.asarray(z)
 
-# First PCA
+# PCA Dim Reduction
 pca =  PCA(n_components = 150)
 X_train = z - np.mean(z)
 X_new_final = pca.fit_transform(X_train)
 
 
-# Second PCA
+# PCA to do Post-Processing Again
 pca =  PCA(n_components = 150)
 X_new = X_new_final - np.mean(X_new_final)
 X_new = pca.fit_transform(X_new)
