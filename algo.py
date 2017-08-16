@@ -71,5 +71,5 @@ for i, x in enumerate(X_train_names):
 
 print("Results for the Embedding")
 print subprocess.check_output(["python", "all_wordsim.py", "pca_embed2.txt", "data/word-sim/"])
-print("Results for the 100D Glove")
+print("Results for Glove")
 print subprocess.check_output(["python", "all_wordsim.py", "../glove.6B/glove.6B.300d.txt", "data/word-sim/"])
