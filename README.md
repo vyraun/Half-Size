@@ -6,7 +6,7 @@ The word-vector evaluation code is directly used from https://github.com/mfaruqu
 
 Run the script ```algo.py``` (embedding file location is hardcoded as of now) to reproduce the algorithm and its evaluation. 
 
-Similarly, other baseline PCA: ```pca_simple.py```, PPA+PCA: ```ppa_pca.py``` and PCA+PPA: ```pca_ppa.py``` results can be reproduced.
+Similarly, other baselines': PCA ```pca_simple.py```, PPA+PCA ```ppa_pca.py``` and PCA+PPA ```pca_ppa.py``` results can be reproduced.
 
 To run the algo and the baselines (as in the paper) get the embedding files ([Glove](https://nlp.stanford.edu/projects/glove/), [Fastext](https://github.com/facebookresearch/fastText/blob/master/pretrained-vectors.md)) and put the file locations as required in the code.
 
