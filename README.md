@@ -12,4 +12,4 @@ To run the algo and the baselines (as in the paper) get the embedding files ([Gl
 
 The code will generate and evaluate (on 12 word-similarity datasets) a modified word embedding file that is half-the-size of the original embeddings.
 
-The algorithm can be used to generate embeddings of any size, not necessaeility half.
+The algorithm can be used to generate embeddings of any size, not necessarily half.
