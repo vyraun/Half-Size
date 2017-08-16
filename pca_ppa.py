@@ -29,8 +29,7 @@ pca =  PCA(n_components = 150)
 X_train = X_train - np.mean(X_train)
 X_new_final = pca.fit_transform(X_train)
 
-
-# PCA to do Post-Processing Again
+# PCA to do Post-Processing
 pca =  PCA(n_components = 150)
 X_new = X_new_final - np.mean(X_new_final)
 X_new = pca.fit_transform(X_new)
