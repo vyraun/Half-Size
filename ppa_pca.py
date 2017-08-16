@@ -25,7 +25,7 @@ X_train = np.asarray(X_train)
 pca_embeddings = {}
 embedding_file = open('pca_embedding_30.txt', 'w')
 
-# First PCA
+# First PCA to get Top Components
 pca =  PCA(n_components = 300)
 X_train = X_train - np.mean(X_train)
 X_fit = pca.fit_transform(X_train)
@@ -34,6 +34,7 @@ U1 = pca.components_
 pca_embeddings = {}
 z = []
 
+# Removing Projections on Top Components
 for i, x in enumerate(X_train):
     for u in U1[0:7]:
         x = x - np.dot(u.transpose(),x) * u
@@ -41,7 +42,7 @@ for i, x in enumerate(X_train):
     
 z = np.asarray(z).astype(np.float32)    
 
-# Second PCA
+# PCA for Dim Reduction
 pca =  PCA(n_components = 150)
 X_train = z - np.mean(z)
 X_new = pca.fit_transform(X_train)
