@@ -1,6 +1,6 @@
 Effective Dimensionality Reduction for Word Embeddings.
 
-Code for the [arXiv paper](https://arxiv.org/abs/1708.03629).
+Code for the [arXiv paper](https://arxiv.org/abs/1708.03629). Accepted at NIPS 2017 LLD Workshop.
 
 The word-vector evaluation code is directly used from https://github.com/mfaruqui/eval-word-vectors.  
 
