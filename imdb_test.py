@@ -1,6 +1,7 @@
 
 import numpy as np
 from keras.datasets import imdb
+from keras.utils.data_utils import get_file
 
 #top_words = 5000
 #test_split = 0.30
