@@ -107,8 +107,8 @@ print("The Label Classes = {}".format(le.classes_))
 
 print("Starting the Model Training for Reduced Data")
 rclf = LinearSVC(random_state=0)
-rclf.fit(X, y)
-print("Training set score: %f" % rclf.score(X, y))
+rclf.fit(rX, y)
+print("Training set score: %f" % rclf.score(rX, y))
 
 print("Starting the Model Training for Non-Reduced Data")
 wclf = LinearSVC(random_state=0)
