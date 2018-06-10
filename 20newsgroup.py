@@ -83,25 +83,37 @@ from sklearn.pipeline import Pipeline
 from sklearn.svm import LinearSVC
 
 print("Transforming the Training Data")
+print("An Input Vector Sample = {}".format(X[0]))
+print("A Transformed Label Sample = {}".format(y[0]))
 
-vec = TfidfEmbeddingVectorizer(rw2v)
-vec.fit(X, y)
-X = vec.transform(X)
+rX = X.copy()
+rvec = TfidfEmbeddingVectorizer(rw2v)
+rvec.fit(rX, y)
+rX = vec.transform(rX)
+
+wX = X.copy()
+wvec = TfidfEmbeddingVectorizer(w2v)
+wvec.fit(wX, y)
+wX = vec.transform(wX)
 
 from sklearn import preprocessing
 le = preprocessing.LabelEncoder()
 le.fit(y)
 y = le.transform(y)
 
-print("A Transformed Input Vector Sample = {}".format(X[0]))
+print("A Transformed (Reduced) Input Vector Sample = {}".format(rX[0]))
 print("A Transformed Label Sample = {}".format(y[0]))
 print("The Label Classes = {}".format(le.classes_))
 
-print("Starting the Model Training")
-clf = LinearSVC(random_state=0)
-clf.fit(X, y)
+print("Starting the Model Training for Reduced Data")
+rclf = LinearSVC(random_state=0)
+rclf.fit(X, y)
+print("Training set score: %f" % rclf.score(X, y))
 
-print("Training set score: %f" % clf.score(X, y))
+print("Starting the Model Training for Non-Reduced Data")
+wclf = LinearSVC(random_state=0)
+wclf.fit(wX, y)
+print("Training set score: %f" % wclf.score(wX, y))
 
 """
 LinearSVM_rw2v_tfidf = Pipeline([
