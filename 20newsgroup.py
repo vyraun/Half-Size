@@ -1,5 +1,7 @@
 import numpy as np
 
+print("Reading the Training Dataset")
+
 X, y = [], []
 with open("downstream_datasets/20ng-train-no-stop.txt", "r") as infile:
     for line in infile:
@@ -9,10 +11,16 @@ with open("downstream_datasets/20ng-train-no-stop.txt", "r") as infile:
         # and maybe remove stopwords etc.
         X.append(text.split())
         y.append(label)
+
+        
+print("Reading Done")
+        
 X, y = np.array(X), np.array(y)
 print ("total training data points %s" % len(y))
 print ("Sample X = {0}".format(X[0]))
 print ("Sample y = {0}".format(y[0]))
+
+print("Reading the Word Vectors")
 
 with open("glove.6B.200d.txt", "rb") as lines:
     w2v = {line.split()[0]: np.array(map(float, line.split()[1:]))
@@ -21,6 +29,8 @@ with open("glove.6B.200d.txt", "rb") as lines:
 with open("pca_embedding_30.txt", "rb") as lines:
     rw2v = {line.split()[0]: np.array(map(float, line.split()[1:]))
            for line in lines}
+    
+print("Reading Done")
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 from collections import Counter, defaultdict
@@ -72,6 +82,21 @@ class TfidfEmbeddingVectorizer(object):
 from sklearn.pipeline import Pipeline
 from sklearn.svm import LinearSVC
 
+
+print("Starting the Model Training")
+
+vec = TfidfEmbeddingVectorizer(rw2v)
+vec.fit(X, y)
+X = vec.transform(X)
+
+print("A Transformed Input Vector Sample = {}".format(X[0]))
+
+clf = LinearSVC(random_state=0)
+clf.fit(X, y)
+
+print("Training set score: %f" % clf.score(X, y))
+
+"""
 LinearSVM_rw2v_tfidf = Pipeline([
     ("word2vec vectorizer", TfidfEmbeddingVectorizer(rw2v)),
     ("extra trees", LinearSVC(random_state=0))])
@@ -94,3 +119,4 @@ scores = sorted(unsorted_scores, key=lambda x: -x[1])
 
 
 print (tabulate(scores, floatfmt=".4f", headers=("model", 'score')))
+"""
