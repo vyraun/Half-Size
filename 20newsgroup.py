@@ -90,7 +90,7 @@ rX = X.copy()
 rvec = TfidfEmbeddingVectorizer(rw2v)
 rvec.fit(rX, y)
 rX = rvec.transform(rX)
-print("The Reduced Embedding Matrix Shape = {}".format(rX.shape()))
+print("The Reduced Embedding Matrix Shape = %s" % rX.shape() )
 
 wX = X.copy()
 wvec = TfidfEmbeddingVectorizer(w2v)
