@@ -15,6 +15,10 @@ print ("total examples %s" % len(y))
 with open("glove.6B.200d.txt", "rb") as lines:
     w2v = {line.split()[0]: np.array(map(float, line.split()[1:]))
            for line in lines}
+    
+with open("pca_embedding_30.txt", "rb") as lines:
+    rw2v = {line.split()[0]: np.array(map(float, line.split()[1:]))
+           for line in lines}
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 from collections import Counter, defaultdict
@@ -66,16 +70,16 @@ class TfidfEmbeddingVectorizer(object):
 from sklearn.pipeline import Pipeline
 from sklearn.svm import LinearSVC
 
-etree_w2v = Pipeline([
-    ("word2vec vectorizer", MeanEmbeddingVectorizer(w2v)),
+LinearSVM_rw2v_tfidf = Pipeline([
+    ("word2vec vectorizer", TfidfEmbeddingVectorizer(rw2v)),
     ("extra trees", LinearSVC(random_state=0))])
-etree_w2v_tfidf = Pipeline([
+LinearSVM_w2v_tfidf = Pipeline([
     ("word2vec vectorizer", TfidfEmbeddingVectorizer(w2v)),
     ("extra trees", LinearSVC(random_state=0))])
 
 all_models = [
-    ("etree_w2v", etree_w2v),
-    ("etree_w2v_tfidf", etree_w2v_tfidf)
+    ("LinearSVM_rw2v_tfidf", LinearSVM_rw2v_tfidf),
+    ("LinearSVM_w2v_tfidf", LinearSVM_w2v_tfidf)
 ]
 
 
