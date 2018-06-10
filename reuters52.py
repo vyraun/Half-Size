@@ -14,7 +14,7 @@ print("Reading Done")
         
 X, y = np.array(X), np.array(y)
 print ("Total Training Data Points %s" % len(y))
-print ("X Shape = {}, y Shape = {}".format(X.shape, y.shape))
+#print ("X Shape = {}, y Shape = {}".format(X.shape, y.shape))
 #print ("Sample X = {0}".format(X[0]))
 #print ("Sample y = {0}".format(y[0]))
 
