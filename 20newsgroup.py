@@ -89,7 +89,7 @@ import tabulate
 from tabulate import tabulate
 
 from sklearn.cross_validation import cross_val_score
-unsorted_scores = [(name, cross_val_score(model, X, y, cv=5).mean()) for name, model in all_models]
+unsorted_scores = [(name, cross_val_score(model, X, y, cv=None).mean()) for name, model in all_models]
 scores = sorted(unsorted_scores, key=lambda x: -x[1])
 
 
