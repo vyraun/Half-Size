@@ -89,12 +89,12 @@ print("A Transformed Label Sample = {}".format(y[0]))
 rX = X.copy()
 rvec = TfidfEmbeddingVectorizer(rw2v)
 rvec.fit(rX, y)
-rX = vec.transform(rX)
+rX = rvec.transform(rX)
 
 wX = X.copy()
 wvec = TfidfEmbeddingVectorizer(w2v)
 wvec.fit(wX, y)
-wX = vec.transform(wX)
+wX = wvec.transform(wX)
 
 from sklearn import preprocessing
 le = preprocessing.LabelEncoder()
