@@ -16,9 +16,9 @@ with open("downstream_datasets/20ng-train-no-stop.txt", "r") as infile:
 print("Reading Done")
         
 X, y = np.array(X), np.array(y)
-print ("total training data points %s" % len(y))
-print ("Sample X = {0}".format(X[0]))
-print ("Sample y = {0}".format(y[0]))
+print ("Total Training Data Points %s" % len(y))
+#print ("Sample X = {0}".format(X[0]))
+#print ("Sample y = {0}".format(y[0]))
 
 print("Reading the Word Vectors")
 
