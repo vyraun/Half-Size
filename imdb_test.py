@@ -4,7 +4,13 @@ from keras.datasets import imdb
 
 #top_words = 5000
 #test_split = 0.30
-(X, y), (X_test, y_test) = imdb.load_data()  # num_words=top_words
+#(X, y), (X_test, y_test) = imdb.load_data()  # num_words=top_words
+
+path = get_file('imdb_full.pkl',
+                 origin='https://s3.amazonaws.com/text-datasets/imdb_full.pkl',
+                 md5_hash='d091312047c43cf9e4e38fef92437263')
+f = open(path, 'rb')
+(X, y), (test_data, test_labels) = pickle.load(f)
         
 print("Reading Done")
         
