@@ -82,15 +82,20 @@ class TfidfEmbeddingVectorizer(object):
 from sklearn.pipeline import Pipeline
 from sklearn.svm import LinearSVC
 
-
-print("Starting the Model Training")
+print("Transforming the Training Data")
 
 vec = TfidfEmbeddingVectorizer(rw2v)
 vec.fit(X, y)
 X = vec.transform(X)
 
+from sklearn import preprocessing
+le = preprocessing.LabelEncoder()
+le.fit(y)
+y = le.transform(y)
+
 print("A Transformed Input Vector Sample = {}".format(X[0]))
 
+print("Starting the Model Training")
 clf = LinearSVC(random_state=0)
 clf.fit(X, y)
 
