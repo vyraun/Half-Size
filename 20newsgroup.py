@@ -91,14 +91,14 @@ rvec = TfidfEmbeddingVectorizer(rw2v)
 rvec.fit(rX, y)
 rX = rvec.transform(rX)
 print("The Reduced Embedding Matrix Shape:")
-print(rX.shape())
+print(rX.shape)
 
 wX = X.copy()
 wvec = TfidfEmbeddingVectorizer(w2v)
 wvec.fit(wX, y)
 wX = wvec.transform(wX)
 print("The Non-Reduced Embedding Matrix Shape:")
-print(wX.shape())
+print(wX.shape)
 
 from sklearn import preprocessing
 le = preprocessing.LabelEncoder()
