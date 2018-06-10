@@ -1,4 +1,4 @@
-
+import pickle
 import numpy as np
 from keras.datasets import imdb
 from keras.utils.data_utils import get_file
