@@ -64,14 +64,14 @@ class TfidfEmbeddingVectorizer(object):
             ])
 
 from sklearn.pipeline import Pipeline
-from sklearn.ensemble import ExtraTreesClassifier
+from sklearn.svm import LinearSVC
 
 etree_w2v = Pipeline([
     ("word2vec vectorizer", MeanEmbeddingVectorizer(w2v)),
-    ("extra trees", ExtraTreesClassifier(n_estimators=200))])
+    ("extra trees", LinearSVC(random_state=0))])
 etree_w2v_tfidf = Pipeline([
     ("word2vec vectorizer", TfidfEmbeddingVectorizer(w2v)),
-    ("extra trees", ExtraTreesClassifier(n_estimators=200))])
+    ("extra trees", LinearSVC(random_state=0))])
 
 all_models = [
     ("etree_w2v", etree_w2v),
