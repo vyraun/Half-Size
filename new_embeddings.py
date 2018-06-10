@@ -1,5 +1,5 @@
 import numpy as np
-import cPickle as pickle
+import _pickle as pickle
 from sklearn.decomposition import PCA
 import subprocess
 
@@ -26,7 +26,7 @@ pca_embeddings = {}
 embedding_file = open('pca_embedding_30.txt', 'w')
 
 # First PCA to get Top Components
-pca =  PCA(n_components = 300)
+pca =  PCA(n_components = 200)
 X_train = X_train - np.mean(X_train)
 X_fit = pca.fit_transform(X_train)
 U1 = pca.components_
@@ -43,7 +43,7 @@ for i, x in enumerate(X_train):
 z = np.asarray(z).astype(np.float32)    
 
 # PCA for Dim Reduction
-pca =  PCA(n_components = 150)
+pca =  PCA(n_components = 100)
 X_train = z - np.mean(z)
 X_new = pca.fit_transform(X_train)
 
