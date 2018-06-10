@@ -10,7 +10,9 @@ with open("downstream_datasets/20ng-train-no-stop.txt", "r") as infile:
         X.append(text.split())
         y.append(label)
 X, y = np.array(X), np.array(y)
-print ("total examples %s" % len(y))
+print ("total training data points %s" % len(y))
+print ("Sample X = {0}".format(X[0]))
+print ("Sample y = {0}".format(y[0]))
 
 with open("glove.6B.200d.txt", "rb") as lines:
     w2v = {line.split()[0]: np.array(map(float, line.split()[1:]))
@@ -41,7 +43,7 @@ class MeanEmbeddingVectorizer(object):
         ])
 
 class TfidfEmbeddingVectorizer(object):
-    def __init__(self, word2vec):
+    def __init__(self, word2vec): # embedding dictionary is passed
         self.word2vec = word2vec
         self.word2weight = None
         self.dim = len(next(iter(word2vec)))
