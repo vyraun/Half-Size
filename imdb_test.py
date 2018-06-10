@@ -1,9 +1,10 @@
+
 import numpy as np
 from keras.datasets import imdb
 
 top_words = 5000
 test_split = 0.30
-(X_train, y_train), (X_test, y_test) = imdb.load_data(nb_words=top_words, test_split=test_split)
+(X_train, y_train), (X_test, y_test) = imdb.load_data(num_words=top_words)
         
 X, y = np.array(X_train), np.array(y_train)
 print ("total examples %s" % len(y))
