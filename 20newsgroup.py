@@ -94,6 +94,7 @@ le.fit(y)
 y = le.transform(y)
 
 print("A Transformed Input Vector Sample = {}".format(X[0]))
+print("A Transformed Label Sample = {}".format(y[0]))
 
 print("Starting the Model Training")
 clf = LinearSVC(random_state=0)
