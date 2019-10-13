@@ -17,3 +17,5 @@ The code will generate and evaluate (on 12 word-similarity datasets) a modified 
 The sentence-vector evalution is based on SentEval (https://github.com/facebookresearch/SentEval). The generated embedding file could be directly used following the SentEval bow.py example.
 
 The algorithm can be used to generate embeddings of any size, not necessarily half.
+
+Another paper which partially uses this code is [On Dimensional Linguistic Properties of the Word Embedding Space](https://arxiv.org/abs/1910.02211).
