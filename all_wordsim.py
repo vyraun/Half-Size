@@ -25,6 +25,6 @@ if __name__=='__main__':
       else:
         not_found += 1
       total_size += 1    
-    print("%6s" % str(i+1), "%20s" % filename, "%15s" % str(total_size))
-    print("%15s" % str(not_found))
+    print("%6s" % str(i+1), "%20s" % filename, "%15s" % str(total_size), end="")
+    print("%15s" % str(not_found), end="")
     print("%15.4f" % spearmans_rho(assign_ranks(manual_dict), assign_ranks(auto_dict)))
