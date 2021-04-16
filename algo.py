@@ -1,10 +1,10 @@
 import numpy as np
-import cPickle as pickle
+import pickle as pickle
 from sklearn.decomposition import PCA
 import subprocess
 
 Glove = {}
-f = open('/home/vikas/Desktop/glove.6B/glove.6B.300d.txt')
+f = open('./GloVe/glove.6B.50d.txt', 'r', encoding="utf-8")
 
 print("Loading Glove vectors.")
 for line in f:
@@ -25,7 +25,7 @@ X_train = np.asarray(X_train)
 pca_embeddings = {}
 
 # PCA to get Top Components
-pca =  PCA(n_components = 300)
+pca =  PCA(n_components = 50)
 X_train = X_train - np.mean(X_train)
 X_fit = pca.fit_transform(X_train)
 U1 = pca.components_
@@ -41,13 +41,13 @@ for i, x in enumerate(X_train):
 z = np.asarray(z)
 
 # PCA Dim Reduction
-pca =  PCA(n_components = 150)
+pca =  PCA(n_components = 25)
 X_train = z - np.mean(z)
 X_new_final = pca.fit_transform(X_train)
 
 
 # PCA to do Post-Processing Again
-pca =  PCA(n_components = 150)
+pca =  PCA(n_components = 25)
 X_new = X_new_final - np.mean(X_new_final)
 X_new = pca.fit_transform(X_new)
 Ufit = pca.components_
@@ -55,12 +55,12 @@ Ufit = pca.components_
 X_new_final = X_new_final - np.mean(X_new_final)
 
 final_pca_embeddings = {}
-embedding_file = open('pca_embed2.txt', 'w')
+embedding_file = open('pca_embed2.txt', 'w', encoding="utf-8")
 
 for i, x in enumerate(X_train_names):
         final_pca_embeddings[x] = X_new_final[i]
         embedding_file.write("%s\t" % x)
-    	for u in Ufit[0:7]:
+        for u in Ufit[0:7]:
             final_pca_embeddings[x] = final_pca_embeddings[x] - np.dot(u.transpose(),final_pca_embeddings[x]) * u 
 
         for t in final_pca_embeddings[x]:
@@ -70,6 +70,6 @@ for i, x in enumerate(X_train_names):
 
 
 print("Results for the Embedding")
-print subprocess.check_output(["python", "all_wordsim.py", "pca_embed2.txt", "data/word-sim/"])
+print((subprocess.check_output(["python", "all_wordsim.py", "pca_embed2.txt", "data/word-sim/"])).decode("utf-8"))
 print("Results for Glove")
-print subprocess.check_output(["python", "all_wordsim.py", "../glove.6B/glove.6B.300d.txt", "data/word-sim/"])
+print((subprocess.check_output(["python", "all_wordsim.py", "./GloVe/glove.6B.50d.txt", "data/word-sim/"])).decode("utf-8"))

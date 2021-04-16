@@ -9,9 +9,9 @@ if __name__=='__main__':
   word_sim_dir = sys.argv[2]
   
   word_vecs = read_word_vectors(word_vec_file)
-  print '================================================================================='
-  print "%6s" %"Serial", "%20s" % "Dataset", "%15s" % "Num Pairs", "%15s" % "Not found", "%15s" % "Rho"
-  print '================================================================================='
+  print('=================================================================================')
+  print("%6s" %"Serial", "%20s" % "Dataset", "%15s" % "Num Pairs", "%15s" % "Not found", "%15s" % "Rho")
+  print('=================================================================================')
 
   for i, filename in enumerate(os.listdir(word_sim_dir)):
     manual_dict, auto_dict = ({}, {})
@@ -25,6 +25,6 @@ if __name__=='__main__':
       else:
         not_found += 1
       total_size += 1    
-    print "%6s" % str(i+1), "%20s" % filename, "%15s" % str(total_size),
-    print "%15s" % str(not_found),
-    print "%15.4f" % spearmans_rho(assign_ranks(manual_dict), assign_ranks(auto_dict))
+    print("%6s" % str(i+1), "%20s" % filename, "%15s" % str(total_size))
+    print("%15s" % str(not_found))
+    print("%15.4f" % spearmans_rho(assign_ranks(manual_dict), assign_ranks(auto_dict)))

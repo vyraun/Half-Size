@@ -10,7 +10,7 @@ from operator import itemgetter
 def read_word_vectors(filename):    
   word_vecs = {}
   if filename.endswith('.gz'): file_object = gzip.open(filename, 'r')
-  else: file_object = open(filename, 'r')
+  else: file_object = open(filename, 'r', encoding="utf-8")
 
   for line_num, line in enumerate(file_object):
     line = line.strip().lower()
