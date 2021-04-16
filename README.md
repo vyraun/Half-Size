@@ -2,8 +2,9 @@
 
 Converted original code from [https://github.com/vyraun/Half-Size](https://github.com/vyraun/Half-Size) to Python3. It works for python3.7 tested on GloVe Embeddings.
 
+Please checkout the original GitHub Repository at [https://github.com/vyraun/Half-Size](https://github.com/vyraun/Half-Size)
 
-```md
+## Original README.md
 Code for [Effective Dimensionality Reduction for Word Embeddings](https://www.aclweb.org/anthology/W19-4328/), and its earlier [version](https://arxiv.org/abs/1708.03629).
 
 Accepted at NIPS 2017 LLLD Workshop and Published at the 4th Workshop on Representation Learning for NLP, ACL.
@@ -25,4 +26,3 @@ The sentence-vector evalution is based on SentEval (https://github.com/facebookr
 The algorithm can be used to generate embeddings of any size, not necessarily half.
 
 Another paper which partially uses this code is [On Dimensional Linguistic Properties of the Word Embedding Space](https://arxiv.org/abs/1910.02211).
-```
