@@ -1,3 +1,10 @@
+# Python-3 Version:
+
+Converted original code from [https://github.com/vyraun/Half-Size](https://github.com/vyraun/Half-Size) to Python3. It works for python3.7 tested on GloVe Embeddings.
+
+Please checkout the original GitHub Repository at [https://github.com/vyraun/Half-Size](https://github.com/vyraun/Half-Size)
+
+## Original README.md
 Code for [Effective Dimensionality Reduction for Word Embeddings](https://www.aclweb.org/anthology/W19-4328/), and its earlier [version](https://arxiv.org/abs/1708.03629).
 
 Accepted at NIPS 2017 LLLD Workshop and Published at the 4th Workshop on Representation Learning for NLP, ACL.
